@@ -10,24 +10,23 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css">
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
-<header>
-  <h1>Sites and Attractions in Jamaica</h1>
-  <p id="left">These are 20 different sites in Jamaica. Some are just fun places to give a taste of the culture others are important to the identity of the island.</p>
-</header>
-<article>
-
-
+  <header>
+    <h1>Places I Spent Most Of My Time</h1>
+      <p>These are the places I spent most of my time while I was in high school. They are all actually very conveniently placed and so close I would skateboard to them.</p>
+  </header>
 
 <div id="mapid"></div>
-<script src="js/places.json"></script>
+
 <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 
 <script>
 
-var mymap = L.map('mapid').setView([18.109567, -77.297427], 9);
+
+var mymap = L.map('mapid').setView([27.766861, -82.679461], 13);
 
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -37,15 +36,18 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoidGFqb24iLCJhIjoiY2l2bTBtaXg4MGFtcjJ6bHYzcTdvNHNycyJ9.WhWPi7Fc1bLn0Txoj55Hfg'
 }).addTo(mymap);
 
- for ( var i=0; i < places.length; i++) {
-   L.marker( [places[i].latitude, places[i].longitude] ).bindPopup('<h3>' + places[i].placeName + '</h3>' + '<p>' + places[i].descrip + '</p>' + '<img src="' + places[i].images + '"alt="">')
-   .addTo ( map );
- }
+var marker1 = L.marker([27.764642, -82.681414]).addTo(mymap);
+var marker2 = L.marker([27.760224, -82.677955]).addTo(mymap);
+var marker3 = L.marker([27.772141, -82.668882]).addTo(mymap);
+var marker4 = L.marker([27.770614, -82.670515]).addTo(mymap);
 
-
+marker1.bindPopup("This is my neighborhood").openPopup();
+marker2.bindPopup("This is my high school: Gibbs High").openPopup();
+marker3.bindPopup("This is my after school program: Quantum Oppurtunities").openPopup();
+marker4.bindPopup("This is my church: All Nations SDA Church").openPopup();
 
 </script>
 
-</article>
+
 </body>
 </html>
